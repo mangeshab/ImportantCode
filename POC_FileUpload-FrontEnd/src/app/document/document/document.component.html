@@ -1,0 +1,27 @@
+<p>document works!</p>
+<h1 align="center" id="abc">Document List</h1><button class="nav-link" class="btn btn-primary" routerLink="student-register">Add Student</button>
+<table id="mno" align="center" border="2" class="table table-striped" >
+    <thead id="pqr">
+    <tr>
+        <th>Document Id</th>
+        <th>Customer Id</th>
+        <th>Photo</th>
+        <th>Signature</th>
+        <th>Address Proof</th>
+        <th>Thumb</th>
+    </tr>
+</thead>
+<tbody id="xyz">
+    <tr *ngFor="let dc of fileList">
+        <td>{{dc.documnet_id}}</td>
+        <td>{{dc.customer_id}}</td>
+        <td>{{dc.photo}}</td>
+        <td>{{dc.signature}}</td>
+        <td>{{dc.address_proof}}</td>
+        <td>{{dc.thumb}}</td>
+        <td><a [routerLink]="['document-details',dc.id]">Show Details</a><a class="btn" [routerLink]="['document-update']" [state]="dc"><i class="fa fa-edit" style="color: green;"></i></a></td>
+        <td><a class="btn" (click)="deleteData(dc.id)"><i class="fa fa-trash" style="color: red;"></i></a></td>
+    </tr>
+</tbody>
+</table>
+

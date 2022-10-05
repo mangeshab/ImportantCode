@@ -1,0 +1,30 @@
+
+<form [formGroup]="docForm" (ngSubmit)="save()">
+  
+    <h1 id="abc">Upload Here....</h1>
+    <div class="form-group" >
+      <label for="exampleInputEmail1">DocumentId</label>
+      <input type="text" class="form-control" formControlName="customer_id" placeholder="Enter Document Id">
+    </div>
+    <div class="form-group" >
+      <label for="exampleInputPassword1">Photo</label>
+      <input type="file" class="form-control"  (change)="onselectedFile1($event)">
+    </div><br>
+    <div class="form-group" >
+        <label for="exampleInputPassword1">Signature</label>
+        <input type="file" class="form-control" (change)="onselectedFile2($event)">
+      </div>
+      <div class="form-group" >
+        <label for="exampleInputPassword1">Address Proof</label>
+        <input type="file" class="form-control" (change)="onselectedFile3($event)">
+      </div>
+      <div class="form-group" >
+        <label for="exampleInputPassword1">Thumb</label>
+        <input type="file" class="form-control" (change)="onselectedFile4($event)">
+      </div>
+    <div id="ghi">
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+        
+  </form>
+    
