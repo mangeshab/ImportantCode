@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xsi:schemaLocation="http://www.springframework.org/schema/mvc
+	 http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd 
+	 http://www.springframework.org/schema/beans 
+	 http://www.springframework.org/schema/beans/spring-beans.xsd
+	 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd" 
+	 xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	 xmlns:context="http://www.springframework.org/schema/context" 
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	 xmlns="http://www.springframework.org/schema/beans">
+	 
+    <context:component-scan base-package="com.cjc.crud.web"/>
+	
+	<mvc:annotation-driven/>
+	
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <property name="suffix" value=".jsp"></property>
+    
+    </bean>
+	
+	
+<bean id="cp" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+<property value="com.mysql.jdbc.Driver" name="driverClassName"/>
+
+<property value="jdbc:mysql://localhost:3306/spring" name="url"/>
+
+<property value="root" name="username"/>
+
+<property value="root" name="password"/>
+
+</bean>
+
+
+<bean id="sf" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+
+<property name="dataSource" ref="cp"/>
+
+
+<property name="hibernateProperties">
+
+
+<props>
+
+<prop key="hibernate-dialect">org.hibernate.dialect.MySQLDialect</prop>
+
+<prop key="hibernate.hbm2ddl.auto">update</prop>
+
+</props>
+
+</property>
+
+
+<property name="annotatedClasses">
+
+
+<list>
+
+<value>com.cjc.crud.web.model.Employee</value>
+
+</list>
+
+</property>
+
+</bean>
+</beans>
